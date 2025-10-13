@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  warp2api:
+    build: .
+    container_name: warp2api
+    restart: unless-stopped
+    ports:
+      - "5010:5010"
+      - "5011:5011"
+      - "5012:5012"
+    volumes:
+      - ./warp_accounts.db:/app/warp_accounts.db
+      - ./config.py:/app/config.py
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5011/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

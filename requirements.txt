@@ -1,0 +1,11 @@
+httpx[http2]
+h2
+uvicorn
+fastapi
+pydantic
+python-dotenv
+protobuf
+grpcio-tools
+aiosqlite
+fake-useragent
+requests
